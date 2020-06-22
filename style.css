@@ -860,7 +860,7 @@ body {
     }
     #portfolio #portfolio-content #portfolio-all .txt {
         font-weight: 300;
-        font-size: 14px;
+        font-size: 13px;
         line-height: 24px;
     }
     #portfolio #portfolio-content #portfolio-all .card .intro {
@@ -1324,7 +1324,7 @@ body {
     }
     #portfolio #portfolio-content #portfolio-all .card-right img {
         width: 100px;
-        height: 100px;ÍÍÍÍÍÍ
+        height: 100px;
     }
     #portfolio #portfolio-content #portfolio-all .card-right .card {
         margin-left: calc((100% - 310px) / 3 );
