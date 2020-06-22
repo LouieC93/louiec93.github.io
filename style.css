@@ -1087,7 +1087,7 @@ body {
         height: 150px;
     }
     #portfolio #portfolio-content #portfolio-all .card-right .card {
-        margin: 18px 20px 0;
+        margin: 18px calc((100% - 450px) / 6) 0;
     }
     #portfolio #portfolio-content #portfolio-all .txt {
         font-weight: 300;
