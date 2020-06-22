@@ -1,0 +1,1754 @@
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+body {
+    background: url("img/background-white.jpg")  center bottom fixed no-repeat;
+    background-size: cover;
+}
+:root {
+    --border: 5px solid #51565c;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --grey: rgb(144, 153, 165);
+    --dark: #596164;
+    --blue: #3cc2ef;
+    --red: #ed6077;
+    --yellow: #fdd62a;
+    --bgblue: linear-gradient(-30deg, #1e3c72 0%, #1e3c72 10%, #2a5298 100%);
+}
+/* Switch Strat */
+.ns-switch {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+/* All Joy Con */
+.joy-con {
+    width: 250px;
+    height: 750px;
+    border: var(--border);
+    position: relative;
+    box-shadow: inset -30px 0 var(--shadow), inset 15px 0 rgba(255,255,255,0.2), inset 4px 4px rgba(255,255,255,0.5);
+}
+/* left Joy Con */
+.left {
+    border-radius: 100px 0 0 100px;
+    background: var(--blue);
+}
+/* right Joy Con */
+.right {
+    border-radius: 0px 100px 100px 0px;
+    background: var(--red);
+}
+/* 類比搖桿 */
+.analogic {
+    width: 125px;
+    height: 125px;
+    background: var(--grey);
+    border-radius: 50%;
+    border: var(--border);
+    margin: 80px auto 100px;
+    position: relative;
+}
+.analogic:after, .analogic:before {
+    content: '';
+    position: absolute;
+    background: var(--dark);
+}
+.analogic:before {
+    width: 100%;
+    height: 5px;
+    top: calc(50% - 2.5px);
+}
+.analogic:after {
+    width: 5px;
+    height: 100%;
+    left: calc(50% - 2.5px);
+}
+.center-circle {
+    width: 80px;
+    height: 80px;
+    background: var(--grey);
+    border: var(--border);
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    box-shadow: inset -15px 0 var(--shadow), inset 10px 0 rgba(255,255,255,0.2), inset 5px 20px rgba(255,255,255,0.1);
+}
+.right .analogic {
+    top: 250px;
+}
+/* buttons */
+.buttons {
+    width: 70%;
+    position: relative;
+    margin: 0 auto;
+}
+.buttons button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--grey);
+    border: var(--border);
+    color: var(--dark);
+    position: absolute;
+    box-shadow: inset -5px 0 var(--shadow);
+}
+.right .buttons {
+    top: -200px;
+}
+.buttons button:after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 15px solid var(--dark);
+    position: absolute;
+    transform: translate(-50%, -65%);
+}
+.buttons button:nth-child(1) {
+    left: 10px;
+    top: 25px;
+    transform: rotate(-90deg);
+    box-shadow: inset 0px -5px var(--shadow);
+}
+.buttons button:nth-child(2) {
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.buttons button:nth-child(3) {
+    right: 10px;
+    top: 25px;
+    transform: rotate(90deg);
+    box-shadow: inset 0px 5px var(--shadow);
+}
+.buttons button:nth-child(4) {
+    top: 100px;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(180deg);
+    box-shadow: inset 5px 0px var(--shadow);
+}
+/* square and circle */
+.square, .circle {
+    width: 25px;
+    height: 25px;
+    background: var(--grey);
+    border: var(--border);
+    position: absolute;
+    bottom: 200px;
+    right: 60px;
+}
+.circle {
+    border-radius: 50%;
+    left: 60px;
+}
+/* minus and plus */
+.minus, .plus {
+    font-size: 48px;
+    font-weight: bold;
+    color: var(--dark);
+    position: absolute;
+    top: 10px;
+    text-shadow: 0 2px rgba(255,255,255,0.3);
+}
+.minus {
+    right: 15px;
+}
+.plus {
+    left: 15px;
+}
+/* l1 and r1 */
+.joy-con:before {
+    content: '';
+    width: 200px;
+    height: 150px;
+    background: var(--grey);
+    position: absolute;
+    z-index: -5;
+    top: -10px;
+}
+.left:before {
+    border-radius: 100px 0;
+    left: -10px;
+}
+.right:before {
+    border-radius: 0 100px;
+    right: -10px;
+}
+
+/* Screen */
+.middle {
+    padding: 8px 15px;
+    border: var(--border);
+    background: var(--grey);
+    box-shadow: inset 0 0 50px #29323c33;
+    /* overflow: hidden; */
+}
+.screen {
+    width: 1100px;
+    height: 630px;
+    border-radius: 10px;
+    border: 40px solid var(--dark);
+    position: relative;
+    display: flex;  
+    flex-flow: column-reverse;
+    background: #fff;
+}
+
+/* nav link */
+#nav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+#nav a {
+    display: block;
+    text-decoration: none;
+    margin: auto 50px;
+}
+#nav i {
+    font-size: 48px;
+    border-radius: 50%;
+    padding: 5px;
+    color: #ccc;
+    transition: .5s;
+}
+#nav a:hover i {
+    color: #aaa;
+    box-shadow: 2px 2px 6px #3339;
+}
+
+/* main */
+#main {
+    width: 100%;
+    height: 550px;
+}
+/* ------ about ------*/
+#about {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: relative;
+}
+/* about left */
+#about-left {
+    width: 20%;
+    height: 100%;
+    background: #F0EEE4;
+}
+/* about photo */
+#about-left .photo {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    top: 12%;
+    right: -60px;
+    box-shadow: 3px 3px 5px #3336;
+    /* background: #fff; */
+}
+#about-left .photo img {
+    width: 100%;
+    height: 100%;
+}
+/* about right */
+#about-right {
+    width: 80%;
+    height: 100%;
+    background: var(--bgblue);
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+#about-right .intro {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+#about-right .intro h1 {
+    margin-top: 7%;
+    font-size: 120px;
+    font-family: 'Caveat', cursive;
+    font-weight: 500;
+    letter-spacing: 5px;
+    transform: rotate(-5deg);
+    color: #f8be00;
+}
+#about-right .intro p {
+    color: var(--yellow);
+    font-family: 'Josefin Sans', sans-serif;
+    letter-spacing: 1px;
+    margin-bottom: 5%;
+    font-weight: 300;
+}
+#about-right .intro h5 {
+    font-size: 24px;
+    font-weight: 300;
+    color: #fffd;
+    text-align: center;
+    font-weight:300;
+    letter-spacing: 1px;
+}
+#about-right .contact {
+    margin: auto;
+}
+#about-right .contact span {
+    font-weight: 300;
+    color: #ffffff;
+    margin: 0 15px;
+}
+#about-right .contact i {
+    margin-right: px;
+    font-size: 25px;
+    position: relative;
+    top: 3px;
+}
+#about-right .contact a {
+    text-decoration: none;
+    color: #ffffff;
+}
+/* ------ wrok-exp ------ */
+#work-exp {
+    width: 100%;
+    height: 100%;
+    background: var(--bgblue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#work-exp #exp-content {
+    width: 90%;
+    height: 90%;
+    /* border: 2px solid var(--yellow); */
+    position: relative;
+}
+#work-exp #exp-content .experience h2 {
+    padding: 20px 0;
+    font-family: 'Josefin Sans', sans-serif;
+    color: var(--yellow);
+    text-align: center;
+    font-size: 48px;
+}
+#work-exp #exp-content .all-exp {
+    height: calc(100% - 88px);
+    position: relative;
+    display: flex;
+    color: #fff;
+}
+#work-exp #exp-content .all-exp::before {
+    content: '';
+    height: 100%;
+    position: absolute;
+    width: 2px;
+    background: #fff6;
+    left: calc(50% - 2.5px);
+    border-radius: 10px;
+}
+#work-exp #exp-content .all-exp .exp-part {
+    box-sizing: border-box;
+    width: 50%;
+    position: relative;
+}
+#work-exp #exp-content .all-exp .exp-1 {
+    padding-top: 36px;
+    padding-right: 48px;
+    text-align: right;
+}
+#work-exp #exp-content .all-exp .exp-2 {
+    padding-top: 144px;
+    padding-left: 48px;
+}
+/* exp font */
+#work-exp #exp-content .all-exp h3 {
+    font-size: 24px;
+    font-weight: 400;
+}
+#work-exp #exp-content .all-exp h5 {
+    font-size: 18px;
+    font-weight: 300;
+    font-style: italic;
+    margin-bottom: 14px;
+    color: #fff8;
+}
+#work-exp #exp-content .all-exp p {
+    font-size: 16px;
+    font-weight: 100;
+    color: #fff;
+    text-align: left;
+}
+#work-exp #exp-content ul li {
+    list-style-type: circle;
+    list-style-position: inside;
+    list-style: disc inside;
+    font-size: 16px;
+    font-weight: 100;
+}
+/* exp line */
+#work-exp #exp-content .all-exp .exp-1::before {
+    content: '';
+    width: 8px;
+    height: 69px;
+    background: #000;
+    background: linear-gradient(to bottom, #96deda 0%, #50c9c3 100%);
+    position: absolute;
+    right: 24px;
+    border-radius: 50px;
+}
+#work-exp #exp-content .all-exp .exp-2::before {
+    content: '';
+    width: 8px;
+    height: 69px;
+    background: linear-gradient(to bottom, #FFC796 0%, #FF6B95 100%);
+    position: absolute;
+    left: 24px;
+    border-radius: 10px;
+}
+
+/* ------ skills ------ */
+#skills {
+    width: 100%;
+    height: 100%;
+    background: var(--bgblue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#skills #skills-content {
+    width: 90%;
+    height: 90%;
+    /* border: 2px solid var(--yellow); */
+    position: relative;
+}
+#skills #skills-content #skills-title h2{
+    padding: 20px 0;
+    font-family: 'Josefin Sans', sans-serif;
+    color: var(--yellow);
+    text-align: center;
+    font-size: 48px;
+}
+#skills #skills-content #skills-all {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+#skills #skills-content #skills-all .skills-top {
+    width: 45%;
+    background: linear-gradient(95deg, #fff 90%, transparent 90%);
+    margin-left: 5%;
+    position: relative;
+}
+#skills #skills-content #skills-all .skills-bottom {
+    width: 45%;
+    background: linear-gradient(95deg, transparent 10%, #fff 10%);
+    margin-right: 5%;
+    position: relative;
+}
+/* skills font */
+#skills #skills-content #skills-all .skills-part {
+    margin-bottom: 16px;
+}
+#skills #skills-content #skills-all .skills-1 {
+    margin-left: 120px;
+}
+#skills #skills-content #skills-all .skills-2 {
+    margin-left: 120px;
+}
+#skills #skills-content #skills-all .skills-3 {
+    margin-left: 180px;
+}
+#skills #skills-content #skills-all .skills-4 {
+    margin-left: 180px;
+}
+#skills #skills-content #skills-all .skills-part h2 {
+    font-size: 36px;
+    font-weight: bolder;
+}
+#skills #skills-content #skills-all .skills-part ul{
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 2;
+}
+/* skills shape */
+#skills #skills-content #skills-all .skills-top::before {
+    content: '';
+    width: 110px;
+    height: 60px;
+    position: absolute;
+    background: var(--yellow);
+    right: -24px;
+    top: 60px;
+}
+#skills #skills-content #skills-all .skills-bottom::before {
+    content: '';
+    width: 90px;
+    height: 90px;
+    position: absolute;
+    background: var(--yellow);
+    left: -24px;
+    bottom: 60px;
+    border-radius: 50%;
+}
+
+/* ------ profolio ------ */
+#portfolio {
+    width: 100%;
+    height: 100%;
+    background: var(--bgblue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#portfolio #portfolio-content {
+    width: 90%;
+    height: 90%;
+    /* border: 2px solid var(--yellow); */
+    position: relative;
+    display: flex;
+    flex-flow: column;
+}
+#portfolio #portfolio-content #portfolio-title h2 {
+    padding: 20px 0;
+    font-family: 'Josefin Sans', sans-serif;
+    color: var(--yellow);
+    text-align: center;
+    font-size: 48px;
+}
+#portfolio #portfolio-content #portfolio-all {
+    display: flex;
+    flex: auto;
+    align-items: flex-start;
+}
+#portfolio #portfolio-content #portfolio-all .card {
+    position: relative;
+    cursor: pointer;
+}
+#portfolio #portfolio-content #portfolio-all .card-right {
+    display: flex;
+    flex-wrap: wrap;
+}
+/* card img */
+#portfolio #portfolio-content #portfolio-all .card-left img {
+    width: 348px;
+    height: 348px;
+    vertical-align: middle;
+}
+#portfolio #portfolio-content #portfolio-all .card-right img {
+    width: 150px;
+    height: 150px;
+    vertical-align: middle;
+
+}
+#portfolio #portfolio-content #portfolio-all .card-right .card {
+    margin-left: calc((100% - 450px) / 3 );
+    margin-bottom: 24px;
+}
+/* card txt */
+#portfolio #portfolio-content #portfolio-all .txt {
+    background: #f3f3f3;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+}
+/* card hover */
+#portfolio #portfolio-content #portfolio-all .card .intro {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #111a;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 200;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: opacity .5s;
+    opacity: 0;
+}
+#portfolio #portfolio-content #portfolio-all .card-right .intro {
+    font-size: 18px;
+}
+#portfolio #portfolio-content #portfolio-all .card:hover .intro {
+    opacity: 1;
+}
+#portfolio #portfolio-content #portfolio-all .card .intro::after {
+    content: '';
+    width: 0;
+    background: var(--yellow);
+    height: 2px;
+    transition: .5s .2s;
+    position: relative;
+    margin-top: 2px;
+}
+#portfolio #portfolio-content #portfolio-all .card:hover .intro::after {
+    width: 70%;
+}
+
+/* ------ switch ani ------ */
+/* nav icon active */
+#nav .active i {
+    color: #666;
+    box-shadow: 2px 2px 6px #3339;
+}
+#nav .active:hover i {
+    color: #666;
+    box-shadow: 2px 2px 6px #3339;
+}
+/* main inactive */
+#main > div.inactive {
+    display: none;  
+}
+
+/* ------ RWD ------ */
+/* 0 -576 */
+@media (max-width: 575.98px) {
+    /* --- All Joy Con --- */
+    .joy-con {
+        display: none;
+    }
+    /* --- Screen --- */
+    .middle {
+        padding: 0;
+        border: none;
+        box-shadow: none;
+        visibility: hidden;
+    }
+    .screen {
+        visibility: visible;
+        width: 100vw;
+        height: 100vh;
+        border: none
+    }
+    #main {
+        flex-grow: 1;
+    }
+    /* --- Nav --- */
+    #nav {
+        flex-grow: 0;
+        height: 45px;
+        display: flex;
+        align-items: center;
+    }
+    #nav a {
+        margin: auto 25px ;
+    }
+    #nav i {
+        font-size: 28px;
+        padding: 3px;
+    }
+    /* --- Content --- */
+    /* about */
+    #about {
+        flex-flow: column;
+    }
+    #about-left {
+        width: 100%;
+        height: 30%;
+        position: relative;
+    }
+    #about-left .photo {
+        width: 120px;
+        height: 120px;
+        box-shadow: none;
+        position: static;
+    }
+    #about-left .photo img {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        box-shadow: 3px 3px 5px #3336;
+        bottom: -50px;
+        left: calc(50% - 50px);
+        border-radius: 50%;
+    }
+    #about-right {
+        width: 100%;
+    }
+    #about-right .intro h1 {
+        font-size: 72px;
+        margin-top: 15%;
+    }
+    #about-right .intro h5 {
+        font-size: 18px;
+        line-height: 1.6;
+    }
+    #about-right .contact i {
+        font-size: 22px;
+    }
+    #about-right .intro p {
+        margin-bottom: 5%;
+    }
+    #about-right .contact {
+        margin: 5% auto;
+        display: flex;
+        flex-flow: column;
+    }
+    #about-right .contact span {
+        margin: 5px 0;
+    }
+    /* exp */
+    #work-exp #exp-content {
+        width: 95%;
+    }
+    #work-exp #exp-content .all-exp  {
+        flex-flow: column;
+        align-items: center;
+    }
+    #work-exp #exp-content .experience h2 {
+        font-size: 32px;
+        padding: 16px 0;
+    }
+    #work-exp #exp-content .all-exp .exp-part {
+        width: 290px;
+        margin-top: 12px;
+    }
+    #work-exp #exp-content .all-exp .exp-1 {
+        padding: 0;
+    }
+    #work-exp #exp-content .all-exp .exp-2 {
+        padding: 0;
+        margin-top: 36px;
+    }
+    #work-exp #exp-content .all-exp h3 {
+        font-size: 18px;
+    }
+    #work-exp #exp-content .all-exp h5 {
+        font-size: 14px;
+        margin-bottom: 3px;
+    }
+    #work-exp #exp-content .all-exp p {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+    #work-exp #exp-content .all-exp .exp-1::before {
+        right: -20px;
+    }
+    #work-exp #exp-content .all-exp .exp-2::before {
+        left: -20px;
+    }
+    #work-exp #exp-content ul li {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+    #work-exp #exp-content .all-exp::before {
+        content: '';
+        height: 4px;
+        position: absolute;
+        width: 0;
+        background: #fff6;
+        left: auto;
+        top: 190px;
+        border-radius: 10px;
+        transform: rotate(-6deg);
+    }
+    /* skills */
+    #skills #skills-content {
+        width: 90%;
+        display: flex;
+        flex-flow: column;
+    }
+    #skills #skills-content #skills-title h2 {
+        font-size: 36px;
+        padding: 16px 0;
+    }
+    #skills #skills-content #skills-all {
+        flex-flow: column;
+        justify-content: center;
+        margin: auto;
+    }
+    #skills #skills-content #skills-all .skills-top  {
+        width: 100%;
+        background: linear-gradient(170deg, #fff 75%, transparent 75%);
+        display: flex;
+        justify-content: space-around;
+        margin-left: 0;
+        height: 225px;
+    }
+    #skills #skills-content #skills-all .skills-bottom  {
+        width: 100%;
+        background: linear-gradient(170deg, transparent 25%, #fff 25%);
+        display: flex;
+        justify-content: space-around;
+        margin-left: 0;
+        height: 225px;
+        margin-top: -40px;
+    }
+    #skills #skills-content #skills-all .skills-part h2 {
+        font-size: 26px;
+        line-height: 30px;
+        margin-bottom: 5px;
+    }
+    #skills #skills-content #skills-all .skills-part ul {
+        line-height: 2;
+        font-size: 14px;
+        margin-left: 5px;
+    }
+    #skills #skills-content #skills-all .skills-part {
+        margin: 0;
+    }
+    #skills #skills-content #skills-all .skills-1 {
+        margin-top: 15px;
+    }
+    #skills #skills-content #skills-all .skills-2 {
+        margin-top: 15px;
+    }
+    #skills #skills-content #skills-all .skills-3 {
+        margin-top: 70px;
+    }
+    #skills #skills-content #skills-all .skills-4 {
+        margin-top: 70px;
+    }
+    #skills #skills-content #skills-all .skills-top::before {
+        width: 35px;
+        height: 55px;
+        left: 30%;
+        right: auto;
+        top: auto;
+        bottom: 5px;
+    }
+    #skills #skills-content #skills-all .skills-bottom::before {
+        width: 50px;
+        height: 50px;
+        left: auto;
+        right: 30%;
+        top: 5px;
+        bottom: auto;
+    }
+    /* portfolio */
+    #portfolio #portfolio-content {
+        width: 95%;
+    }
+    #portfolio #portfolio-content #portfolio-all {
+        flex-flow: column;
+        align-items: center;
+        flex-grow: 0;
+        margin: auto 0;
+    }
+    #portfolio #portfolio-content #portfolio-title h2 {
+        font-size: 36px;
+        padding: 16px 0;
+    }
+    #portfolio #portfolio-content #portfolio-all .card-left img {
+        width: 150px;
+        height: 150px;
+    }
+    #portfolio #portfolio-content #portfolio-all .card-right {
+        justify-content: center;
+    }
+    #portfolio #portfolio-content #portfolio-all .card-right img {
+        width: 90px;
+        height: 90px;
+    }
+    #portfolio #portfolio-content #portfolio-all .card-right .card {
+        position: relative;
+        margin: 10px calc((100% - 275px) / 6 ) 0; 
+    }
+    #portfolio #portfolio-content #portfolio-all .txt {
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 24px;
+    }
+    #portfolio #portfolio-content #portfolio-all .card .intro {
+        font-size: 17px;
+    }
+    #portfolio #portfolio-content #portfolio-all .card-right .intro {
+        font-size: 14px;
+    }
+}
+/* 576 - 768 */
+@media (min-width: 576px) and (max-width: 767.98px) { 
+    /* --- All Joy Con --- */
+    .joy-con {
+        display: none;
+    }
+    /* --- Screen --- */
+    .middle {
+        padding: 0;
+        border: none;
+        box-shadow: none;
+        visibility: hidden;
+    }
+    .screen {
+        visibility: visible;
+        width: 100vw;
+        height: 100vh;
+        border: none
+    }
+    #main {
+        flex-grow: 1;
+    }
+    /* --- Nav --- */
+    #nav {
+        flex-grow: 0;
+        height: 48px;
+        display: flex;
+        align-items: center;
+    }
+    #nav a {
+        margin: auto 35px ;
+    }
+    #nav i {
+        font-size: 28px;
+        padding: 4px;
+    }
+    /* --- Content --- */
+    /* about */
+    #about {
+        flex-flow: column;
+    }
+    #about-left {
+        width: 100%;
+        height: 30%;
+        position: relative;
+    }
+    #about-left .photo {
+        width: 120px;
+        height: 120px;
+        box-shadow: none;
+        position: static;
+    }
+    #about-left .photo img {
+        width: 150px;
+        height: 150px;
+        position: absolute;
+        box-shadow: 3px 3px 5px #3336;
+        bottom: -75px;
+        left: calc(50% - 75px);
+        border-radius: 50%;
+    }
+    #about-right {
+        width: 100%;
+    }
+    #about-right .intro h1 {
+        font-size: 96px;
+        margin-top: 12%;
+    }
+    #about-right .intro h5 {
+        font-size: 20px;
+        line-height: 1.6;
+    }
+    #about-right .contact i {
+        font-size: 22px;
+    }
+    #about-right .intro p {
+        margin-bottom: 5%;
+    }
+    #about-right .contact {
+        margin: 5% auto;
+    }
+    #about-right .contact span {
+        margin: 0 10px;
+    }
+    /* exp */
+    #work-exp #exp-content {
+        width: 95%;
+    }
+    #work-exp #exp-content .all-exp  {
+        flex-flow: column;
+        align-items: center;
+    }
+    #work-exp #exp-content .experience h2 {
+        font-size: 48px;
+        padding: 20px 0;
+    }
+    #work-exp #exp-content .all-exp .exp-part {
+        width: 395px;
+        margin-top: 48px;
+    }
+    #work-exp #exp-content .all-exp .exp-1 {
+        padding: 0;
+    }
+    #work-exp #exp-content .all-exp .exp-2 {
+        padding: 0;
+        margin-top: 120px;
+    }
+    #work-exp #exp-content .all-exp h3 {
+        font-size: 24px;
+    }
+    #work-exp #exp-content .all-exp h5 {
+        margin-bottom: 6px;
+    }
+    #work-exp #exp-content .all-exp p {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+    #work-exp #exp-content .all-exp .exp-1::before {
+        right: -20px;
+    }
+    #work-exp #exp-content .all-exp .exp-2::before {
+        left: -20px;
+    }
+    #work-exp #exp-content ul li {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+    #work-exp #exp-content .all-exp::before {
+        content: '';
+        height: 5px;
+        position: absolute;
+        width: 435px;
+        background: #fff6;
+        left: auto;
+        top: 270px;
+        border-radius: 10px;
+        transform: rotate(-6deg);
+    }
+    /* skills */
+    #skills #skills-content {
+        width: 90%;
+        display: flex;
+        flex-flow: column;
+    }
+    #skills #skills-content #skills-title h2 {
+        font-size: 48px;
+        padding: 20px 0;
+    }
+    #skills #skills-content #skills-all {
+        flex-grow: 1;
+        align-items: center;
+    }
+    #skills #skills-content #skills-all .skills-top  {
+        background: linear-gradient(95deg, #fff 85%, transparent 85%);
+    }
+    #skills #skills-content #skills-all .skills-bottom  {
+        background: linear-gradient(95deg, transparent 15%, #fff 15%);
+    }
+    #skills #skills-content #skills-all .skills-part h2 {
+        font-size: 36px;
+    }
+    #skills #skills-content #skills-all .skills-part ul {
+        line-height: 2;
+        font-size: 18px;
+        margin-left: 5px;
+    }
+    #skills #skills-content #skills-all .skills-part {
+        margin-top: 12px;
+        margin-bottom: 36px;
+    }
+    #skills #skills-content #skills-all .skills-1 {
+        margin-left: 20px;
+    }
+    #skills #skills-content #skills-all .skills-2 {
+        margin-left: 20px;
+    }
+    #skills #skills-content #skills-all .skills-3 {
+        margin-left: 90px;
+    }
+    #skills #skills-content #skills-all .skills-4 {
+        margin-left: 90px;
+    }
+    #skills #skills-content #skills-all .skills-top::before {
+        width: 75px;
+        height: 45px;
+        right: -18px;
+        top: 100px;
+    }
+    #skills #skills-content #skills-all .skills-bottom::before {
+        width: 65px;
+        height: 65px;
+        left: -18px;
+        bottom: 100px;
+    }
+    /* portfolio */
+    #portfolio #portfolio-content {
+        width: 95%;
+    }
+    #portfolio #portfolio-content #portfolio-all {
+        flex-flow: column;
+        align-items: center;
+    }
+    #portfolio #portfolio-content #portfolio-title h2 {
+        font-size: 48px;
+        padding: 20px 0;
+    }
+    #portfolio #portfolio-content #portfolio-all .card-left img {
+        width: 300px;
+        height: 308px;
+    }
+    #portfolio #portfolio-content #portfolio-all .card-right {
+        justify-content: center;
+    }
+    #portfolio #portfolio-content #portfolio-all .card-right img {
+        width: 150px;
+        height: 150px;
+    }
+    #portfolio #portfolio-content #portfolio-all .card-right .card {
+        margin: 18px 20px 0;
+    }
+    #portfolio #portfolio-content #portfolio-all .txt {
+        font-weight: 300;
+        font-size: 18px;
+        line-height: 28px;
+    }
+    #portfolio #portfolio-content #portfolio-all .card .intro {
+        font-size: 20px;
+    }
+    #portfolio #portfolio-content #portfolio-all .card-right .intro {
+        font-size: 16px;
+    }
+}
+/* 768 - 1200 */
+@media (min-width: 768px) and (max-width: 1199.98px) { 
+    /* --- All Joy Con --- */
+    .joy-con {
+        width: 150px;
+        height: 450px;
+        box-shadow: inset -20px 0 var(--shadow), inset 15px 0 rgba(255,255,255,0.2), inset 4px 4px rgba(255,255,255,0.5);
+        border: 4px solid #51565c;
+        flex-shrink: 0;
+        overflow: hidden;
+    }
+    .joy-con:before {
+        width: 120px;
+        height: 110px;
+        top: -7px;
+    }
+    .left:before {
+        left: -7px;
+    }
+    .right:before {
+        right: -7px;
+    }
+    /* 類比搖桿 */
+    .analogic {
+        width: 80px;
+        height: 80px;
+        margin: 70px auto 100px;
+        border: 4px solid #51565c;
+    }
+    .analogic:before {
+        height: 4px;
+    }
+    .analogic:after {
+        width: 4px;
+    }
+    .center-circle {
+        width: 50px;
+        height: 50px;
+        border: 4px solid #51565c;
+    }
+    .right .analogic {
+        top: 130px;
+    }
+    /* 四向按鈕 */
+    .buttons {
+        width: 75%;
+    }
+    .buttons button {
+        width: 35px;
+        height: 35px;
+        border: 3px solid #51565c;
+    }
+    .buttons button:after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-bottom: 12px solid var(--dark);
+    }
+    .buttons button:nth-child(1) {
+        left: 6px;
+        top: 35px;
+    }
+    .buttons button:nth-child(2) {
+        top: 20px;
+    }
+    .buttons button:nth-child(3) {
+        right: 6px;
+        top: 35px;
+    }
+    .buttons button:nth-child(4) {
+        top: 85px;
+    }
+    .left .buttons {
+        top: -60px;
+    }
+    /* 下方孔 */
+    .square, .circle {
+        width: 18px;
+        height: 18px;
+        bottom: 90px;
+        right: 30px;
+        border: 3px solid #51565c;
+    }
+    .circle {
+        left: 30px;
+    }
+    .minus, .plus {
+        top: 5px;
+    }
+    /* --- Screen --- */
+    .screen {
+        width: 750px;
+        height: 380px;
+        border: 20px solid var(--dark);
+    }
+    #main {
+        height: 340px;
+    }
+    /* --- Nav --- */
+    #nav a {
+        margin: auto 35px;
+    }
+    #nav i {
+        font-size: 28px;
+        padding: 3px;
+    }
+    /* --- Content --- */
+    /* about */
+    #about-left .photo {
+        width: 120px;
+        height: 120px;
+    }
+    #about-right .intro h1 {
+        font-size: 72px;
+    }
+    #about-right .intro h5 {
+        font-size: 20px;
+    }
+    #about-right .contact i {
+        font-size: 22px;
+    }
+    #about-right .intro p {
+        margin-bottom: 4%;
+    }
+    /* exp */
+    #work-exp #exp-content {
+        width: 95%;
+    }
+    #work-exp #exp-content .experience h2 {
+        font-size: 36px;
+        padding: 16px 0;
+    }
+    #work-exp #exp-content .all-exp .exp-1 {
+        padding-top: 12px;
+        padding-right: 30px;
+    }
+    #work-exp #exp-content .all-exp .exp-2 {
+        padding-top: 12px;
+        padding-left: 30px;
+    }
+    #work-exp #exp-content .all-exp h3 {
+        font-size: 20px;
+    }
+    #work-exp #exp-content .all-exp h5 {
+        margin-bottom: 6px;
+    }
+    #work-exp #exp-content .all-exp p {
+        font-size: 13px;
+    }
+    #work-exp #exp-content .all-exp .exp-1::before {
+        right: 14px;
+        width: 7px;
+    }
+    #work-exp #exp-content .all-exp .exp-2::before {
+        left: 14px;
+        width: 7px;
+    }
+    #work-exp #exp-content ul li {
+        font-size: 14px;
+    }
+    /* skills */
+    #skills #skills-content {
+        width: 95%;
+    }
+    #skills #skills-content #skills-title h2 {
+        font-size: 36px;
+        padding: 16px 0;
+    }
+    #skills #skills-content #skills-all .skills-part h2 {
+        font-size: 26px;
+    }
+    #skills #skills-content #skills-all .skills-part ul {
+        line-height: 1.8;
+    }
+    #skills #skills-content #skills-all .skills-top {
+        display: flex;
+    }
+    #skills #skills-content #skills-all .skills-bottom {
+        display: flex;
+    }
+    #skills #skills-content #skills-all .skills-part {
+        margin-top: 12px;
+        margin-bottom: 36px;
+    }
+    #skills #skills-content #skills-all .skills-1 {
+        margin-left: 20px;
+    }
+    #skills #skills-content #skills-all .skills-2 {
+        margin-left: 20px;
+    }
+    #skills #skills-content #skills-all .skills-3 {
+        margin-left: 90px;
+    }
+    #skills #skills-content #skills-all .skills-4 {
+        margin-left: 36px;
+    }
+    #skills #skills-content #skills-all .skills-top::before {
+        width: 75px;
+        height: 40px;
+        right: -12px;
+    }
+    #skills #skills-content #skills-all .skills-bottom::before {
+        width: 60px;
+        height: 60px;
+        left: -10px;
+        bottom: 40px;
+    }
+    /* portfolio */
+    #portfolio #portfolio-content {
+        width: 80%;
+    }
+    #portfolio #portfolio-content #portfolio-title h2 {
+        font-size: 36px;
+        padding: 16px 0;
+    }
+    #portfolio #portfolio-content #portfolio-all .card-left img {
+        width: 228px;
+        height: 228px;
+    }
+    #portfolio #portfolio-content #portfolio-all .card-right img {
+        width: 100px;
+        height: 100px;
+    }
+    #portfolio #portfolio-content #portfolio-all .card-right .card {
+        margin-left: calc((100% - 300px) / 3 );
+        margin-bottom: 8px;
+    }
+    #portfolio #portfolio-content #portfolio-all .txt {
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 20px;
+    }
+    #portfolio #portfolio-content #portfolio-all .card .intro {
+        font-size: 20px;
+    }
+    #portfolio #portfolio-content #portfolio-all .card-right .intro {
+        font-size: 14px;
+    }
+}
+/* 1200 - 1600 */
+@media (min-width: 1200px) and (max-width: 1599.98px) {
+    /* --- All Joy Con --- */
+    .joy-con {
+        width: 150px;
+        height: 450px;
+        box-shadow: inset -20px 0 var(--shadow), inset 15px 0 rgba(255,255,255,0.2), inset 4px 4px rgba(255,255,255,0.5);
+        border: 4px solid #51565c;
+    }
+    .joy-con:before {
+        width: 120px;
+        height: 110px;
+        top: -7px;
+    }
+    .left:before {
+        left: -7px;
+    }
+    .right:before {
+        right: -7px;
+    }
+    /* 類比搖桿 */
+    .analogic {
+        width: 80px;
+        height: 80px;
+        margin: 70px auto 100px;
+        border: 4px solid #51565c;
+    }
+    .analogic:before {
+        height: 4px;
+    }
+    .analogic:after {
+        width: 4px;
+    }
+    .center-circle {
+        width: 50px;
+        height: 50px;
+        border: 4px solid #51565c;
+    }
+    .right .analogic {
+        top: 130px;
+    }
+    /* 四向按鈕 */
+    .buttons {
+        width: 75%;
+    }
+    .buttons button {
+        width: 35px;
+        height: 35px;
+        border: 3px solid #51565c;
+    }
+    .buttons button:after {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-bottom: 12px solid var(--dark);
+    }
+    .buttons button:nth-child(1) {
+        left: 6px;
+        top: 35px;
+    }
+    .buttons button:nth-child(2) {
+        top: 20px;
+    }
+    .buttons button:nth-child(3) {
+        right: 6px;
+        top: 35px;
+    }
+    .buttons button:nth-child(4) {
+        top: 85px;
+    }
+    .left .buttons {
+        top: -60px;
+    }
+    /* 下方孔 */
+    .square, .circle {
+        width: 18px;
+        height: 18px;
+        bottom: 90px;
+        right: 30px;
+        border: 3px solid #51565c;
+    }
+    .circle {
+        left: 30px;
+    }
+    .minus, .plus {
+        top: 5px;
+    }
+    /* --- Screen --- */
+    .screen {
+        width: 750px;
+        height: 380px;
+        border: 20px solid var(--dark);
+    }
+    #main {
+        height: 340px;
+    }
+    /* --- Nav --- */
+    #nav a {
+        margin: auto 35px;
+    }
+    #nav i {
+        font-size: 28px;
+        padding: 3px;
+    }
+    /* --- Content --- */
+    /* about */
+    #about-left .photo {
+        width: 120px;
+        height: 120px;
+    }
+    #about-right .intro h1 {
+        font-size: 72px;
+    }
+    #about-right .intro h5 {
+        font-size: 20px;
+    }
+    #about-right .contact i {
+        font-size: 22px;
+    }
+    #about-right .intro p {
+        margin-bottom: 4%;
+    }
+    /* exp */
+    #work-exp #exp-content {
+        width: 95%;
+    }
+    #work-exp #exp-content .experience h2 {
+        font-size: 36px;
+        padding: 16px 0;
+    }
+    #work-exp #exp-content .all-exp .exp-1 {
+        padding-top: 12px;
+        padding-right: 30px;
+    }
+    #work-exp #exp-content .all-exp .exp-2 {
+        padding-top: 12px;
+        padding-left: 30px;
+    }
+    #work-exp #exp-content .all-exp h3 {
+        font-size: 20px;
+    }
+    #work-exp #exp-content .all-exp h5 {
+        margin-bottom: 6px;
+    }
+    #work-exp #exp-content .all-exp p {
+        font-size: 13px;
+    }
+    #work-exp #exp-content .all-exp .exp-1::before {
+        right: 14px;
+        width: 7px;
+    }
+    #work-exp #exp-content .all-exp .exp-2::before {
+        left: 14px;
+        width: 7px;
+    }
+    #work-exp #exp-content ul li {
+        font-size: 14px;
+    }
+    /* skills */
+    #skills #skills-content {
+        width: 95%;
+    }
+    #skills #skills-content #skills-title h2 {
+        font-size: 36px;
+        padding: 16px 0;
+    }
+    #skills #skills-content #skills-all .skills-part h2 {
+        font-size: 26px;
+    }
+    #skills #skills-content #skills-all .skills-part ul {
+        line-height: 1.8;
+    }
+    #skills #skills-content #skills-all .skills-top {
+        display: flex;
+    }
+    #skills #skills-content #skills-all .skills-bottom {
+        display: flex;
+    }
+    #skills #skills-content #skills-all .skills-part {
+        margin-top: 12px;
+        margin-bottom: 36px;
+    }
+    #skills #skills-content #skills-all .skills-1 {
+        margin-left: 20px;
+    }
+    #skills #skills-content #skills-all .skills-2 {
+        margin-left: 20px;
+    }
+    #skills #skills-content #skills-all .skills-3 {
+        margin-left: 90px;
+    }
+    #skills #skills-content #skills-all .skills-4 {
+        margin-left: 36px;
+    }
+    #skills #skills-content #skills-all .skills-top::before {
+        width: 75px;
+        height: 40px;
+        right: -12px;
+    }
+    #skills #skills-content #skills-all .skills-bottom::before {
+        width: 60px;
+        height: 60px;
+        left: -10px;
+        bottom: 40px;
+    }
+    /* portfolio */
+    #portfolio #portfolio-content {
+        width: 80%;
+    }
+    #portfolio #portfolio-content #portfolio-title h2 {
+        font-size: 36px;
+        padding: 16px 0;
+    }
+    #portfolio #portfolio-content #portfolio-all .card-left img {
+        width: 228px;
+        height: 228px;
+    }
+    #portfolio #portfolio-content #portfolio-all .card-right img {
+        width: 100px;
+        height: 100px;
+    }
+    #portfolio #portfolio-content #portfolio-all .card-right .card {
+        margin-left: calc((100% - 300px) / 3 );
+        margin-bottom: 8px;
+    }
+    #portfolio #portfolio-content #portfolio-all .txt {
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 20px;
+    }
+    #portfolio #portfolio-content #portfolio-all .card .intro {
+        font-size: 20px;
+    }
+    #portfolio #portfolio-content #portfolio-all .card-right .intro {
+        font-size: 14px;
+    }
+}
+/* 1600 - 1920 */
+@media (min-width: 1600px) and (max-width: 1919.98px) {
+    /* --- All Joy Con --- */
+    .joy-con {
+        width: 200px;
+        height: 600px;
+    }
+    .joy-con:before {
+        width: 150px;
+        height: 130px;
+        top: -8px;
+    }
+    .left:before {
+        left: -8px;
+    }
+    .right:before {
+        right: -8px;
+    }
+    /* 類比搖桿 */
+    .analogic {
+        width: 100px;
+        height: 100px;
+    }
+    .center-circle {
+        width: 65px;
+        height: 65px;
+    }
+    .right .analogic {
+        top: 180px;
+    }
+    /* 四向按鈕 */
+    .buttons {
+        width: 75%;
+    }
+    .buttons button {
+        width: 45px;
+        height: 45px;
+        border: 4px solid #51565c;
+    }
+    .buttons button:nth-child(1) {
+        top: 20px;
+    }
+    .buttons button:nth-child(3) {
+        top: 20px;
+    }
+    .buttons button:nth-child(4) {
+        top: 85px;
+    }
+    .left .buttons {
+        top: -20px;
+    }
+    /* 下方孔 */
+    .square, .circle {
+        width: 20px;
+        height: 20px;
+        bottom: 130px;
+        right: 50px;
+    }
+    .circle {
+        left: 50px;
+    }
+    /* --- Screen --- */
+    .screen {
+        width: 950px;
+        height: 500px;
+        border: 30px solid var(--dark);
+    }
+    #main {
+        height: 440px;
+    }
+    /* --- Nav --- */
+    #nav a {
+        margin: auto 40px;
+    }
+    #nav i {
+        font-size: 42px;
+        padding: 4px;
+    }
+    /* --- Content --- */
+    /* about */
+    #about-left .photo {
+        width: 150px;
+        height: 150px;
+    }
+    #about-right .intro h1 {
+        font-size: 90px;
+    }
+    #about-right .intro h5 {
+        font-size: 22px;
+    }
+    /* exp */
+    #work-exp #exp-content {
+        width: 95%;
+    }
+    #work-exp #exp-content .experience h2 {
+        font-size: 44px;
+        padding: 20px 0;
+    }
+    #work-exp #exp-content .all-exp .exp-1 {
+        padding-top: 12px;
+        padding-right: 36px;
+    }
+    #work-exp #exp-content .all-exp .exp-2 {
+        padding-top: 60px;
+        padding-left: 36px;
+    }
+    #work-exp #exp-content .all-exp h5 {
+        margin-bottom: 6px;
+    }
+    #work-exp #exp-content .all-exp p {
+        font-size: 15px;
+    }
+    #work-exp #exp-content .all-exp .exp-1::before {
+        right: 16px;
+    }
+    #work-exp #exp-content .all-exp .exp-2::before {
+        left: 16px;
+    }
+    /* skills */
+    #skills #skills-content {
+        width: 95%;
+    }
+    #skills #skills-content #skills-title h2 {
+        font-size: 44px;
+        padding: 20px 0;
+    }
+    #skills #skills-content #skills-all .skills-part h2 {
+        font-size: 28px;
+    }
+    #skills #skills-content #skills-all .skills-part ul {
+        line-height: 1.8;
+    }
+    #skills #skills-content #skills-all .skills-part {
+        margin-bottom: 5px;
+    }
+    #skills #skills-content #skills-all .skills-top::before {
+        width: 90px;
+        height: 50px;
+        right: -18px;
+    }
+    #skills #skills-content #skills-all .skills-bottom::before {
+        width: 75px;
+        height: 75px;
+        left: -12px;
+    }
+    /* portfolio */
+    #portfolio #portfolio-content {
+        width: 80%;
+    }
+    #portfolio #portfolio-content #portfolio-title h2 {
+        font-size: 44px;
+        padding: 20px 0;
+    }
+    #portfolio #portfolio-content #portfolio-all .card-left img {
+        width: 280px;
+        height: 280px;
+    }
+    #portfolio #portfolio-content #portfolio-all .card-right img {
+        width: 120px;
+        height: 120px;
+    }
+    #portfolio #portfolio-content #portfolio-all .card-right .card {
+        margin-left: calc((100% - 360px) / 3 );
+        margin-bottom: 16px;
+    }
+    #portfolio #portfolio-content #portfolio-all .txt {
+        font-weight: 300;
+        font-size: 15px;
+        line-height: 20px;
+    }
+    #portfolio #portfolio-content #portfolio-all .card .intro {
+        font-size: 22px;
+    }
+    #portfolio #portfolio-content #portfolio-all .card-right .intro {
+        font-size: 16px;
+    }
+}
