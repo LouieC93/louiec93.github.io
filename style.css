@@ -2012,7 +2012,7 @@ body {
             background: linear-gradient(171deg, transparent 25%, #fff 25%);
         }
     }
-    @media (max-height: 568px) {
+    @media (max-height: 550px) {
         /* about */
         #about-left {
             flex-shrink: 1;
