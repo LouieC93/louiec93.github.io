@@ -1497,7 +1497,7 @@ body {
         width: 7px;
     }
     #work-exp #exp-content ul li {
-        font-size: 14px;
+        font-size: 13px;
     }
     /* skills */
     #skills #skills-content {
@@ -1563,7 +1563,7 @@ body {
         height: 100px;
     }
     #portfolio #portfolio-content #portfolio-all .card-right .card {
-        margin-left: calc((100% - 300px) / 3 );
+        margin-left: calc((100% - 310px) / 3 );
         margin-bottom: 8px;
     }
     #portfolio #portfolio-content #portfolio-all .txt {
